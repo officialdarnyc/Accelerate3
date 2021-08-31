@@ -21,4 +21,4 @@ EXPOSE 5000
 
 RUN pip install -r requirements.txt
 
-CMD [ "python", "/app/run.py" ]
+ENTRYPOINT [ "python3", "/app/run.py", "--host", "0.0.0.0" ]
