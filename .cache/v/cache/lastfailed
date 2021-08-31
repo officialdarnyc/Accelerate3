@@ -1,0 +1,4 @@
+{
+  "tests/test_user_report.py::test_cast_popularity": true,
+  "tests/test_user_report.py::test_check_report": true
+}

@@ -1,0 +1,7 @@
+apiVersion: v2
+name: app-ob
+version: 0.1.0
+appVersion: 1.0.0
+description: Helm for REST-Docker-template application
+sources:
+- https://github.com/barywhyte
