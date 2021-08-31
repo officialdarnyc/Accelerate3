@@ -7,7 +7,7 @@ jobs:
     docker:
     # Terraform image version should be the same as when
     # you run terraform before from the local machine
-      - image: hashicorp/terraform:0.12.17
+      - image: hashicorp/terraform:0.12.31
     steps:
       - checkout
       - run:
