@@ -3,3 +3,4 @@ terraform/.terraform/
 terraform/*.plan
 terraform/.keys
 project_orderbird
+.init
