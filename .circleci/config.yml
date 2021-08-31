@@ -13,7 +13,7 @@ jobs:
       - run:
           name: Create Service Account key file from environment variable
           working_directory: terraform
-          command: echo ${TF_SERVICE_ACCOUNT_KEY} > orderbird.json
+          command: mkdir .keys && echo ${TF_SERVICE_ACCOUNT_KEY} > .keys/orderbird.json
       - run:
           name: Show Terraform version
           command: terraform version
