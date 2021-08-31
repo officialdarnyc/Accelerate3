@@ -35,7 +35,7 @@ jobs:
           command: terraform apply /tmp/tf.plan
   k8s_deploy:
     docker:
-      - image: gcr.io/orderbird/orderbird:v2
+      - image: google/cloud-sdk
         auth:
           username: _json_key
           password: ${TF_SERVICE_ACCOUNT_KEY}
@@ -47,6 +47,7 @@ jobs:
           command: |
             echo ${GCLOUD_SERVICE_KEY} > gcloud-service-key.json
             gcloud auth activate-service-account --key-file=gcloud-service-key.json
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
             gcloud container clusters get-credentials ${GKE_CLUSTER_NAME} --region ${GOOGLE_COMPUTE_REGION} --project ${GOOGLE_PROJECT_ID}
       - run:
           name: Wait a little until k8s worker nodes up
