@@ -83,7 +83,7 @@ workflows:
       - gcp-gcr/build-and-push-image:
           dockerfile: Dockerfile
           gcloud-service-key: GCLOUD_SERVICE_KEY
-          google-compute-region: GOOGLE_COMPUTE_REGION
+          google-compute-zone: GOOGLE_COMPUTE_REGION
           google-project-id: GOOGLE_PROJECT_ID
           registry-url: gcr.io
           image: orderbird
