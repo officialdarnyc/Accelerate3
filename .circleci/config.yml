@@ -35,10 +35,7 @@ jobs:
           command: terraform apply /tmp/tf.plan
   k8s_deploy:
     docker:
-      - image: google/cloud-sdk
-        auth:
-          username: _json_key
-          password: ${TF_SERVICE_ACCOUNT_KEY}
+      - image: kiwigrid/gcloud-kubectl-helm:3.0.1-272.0.0-218
     steps:
       - checkout
       - run:
