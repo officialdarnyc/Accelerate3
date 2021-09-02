@@ -5,7 +5,7 @@ FROM python:3
 #RUN pip3 install --upgrade pip 
 #RUN apk add mpc1-dev
 #RUN apk add --no-cache --virtual .build-deps gcc musl-dev 
-
+RUN mkdir /app
 WORKDIR /app
 
 COPY obmovies /app/obmovies
@@ -17,8 +17,11 @@ COPY .ini /app
 COPY run.py /app
 COPY base.txt /app
 
-EXPOSE 5000
+EXPOSE 5000/tcp
 
 RUN pip install -r requirements.txt
 
-ENTRYPOINT [ "python3", "/app/run.py", "--host", "0.0.0.0" ]
+ENTRYPOINT [ "python" ]
+CMD [ "run.py", "--host", "0.0.0.0" ]
+
+#ENTRYPOINT [ "python3", "/app/run.py", "--host", "0.0.0.0" ]

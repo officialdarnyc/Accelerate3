@@ -14,4 +14,4 @@ if __name__ == "__main__":
     app.config['MOVIES_NS'] = config['PROD']['MOVIES_NS']
     app.config['SECRET_KEY'] = config['PROD']['SECRET_KEY']
 
-    app.run()
+    app.run(host="0.0.0.0")
