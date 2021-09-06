@@ -14,7 +14,7 @@ provider "google" {
 
 resource "google_container_cluster" "gke-cluster" {
   name                     = "ob-cluster"
-  location                 = "us-central1"
+  location                 = "us-central1-a"
   remove_default_node_pool = true
   # In regional cluster (location is region, not zone) 
   # this is a number of nodes per zone 
@@ -23,11 +23,11 @@ resource "google_container_cluster" "gke-cluster" {
 
 resource "google_container_node_pool" "preemptible_node_pool" {
   name     = "default-pool"
-  location = "us-central1"
+  location = "us-central1-a"
   cluster  = google_container_cluster.gke-cluster.name
   # In regional cluster (location is region, not zone) 
   # this is a number of nodes per zone
-  node_count = 1
+  node_count = 2
 
   node_config {
     preemptible  = true

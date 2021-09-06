@@ -45,7 +45,7 @@ jobs:
             echo ${GCLOUD_SERVICE_KEY} > gcloud-service-key.json
             gcloud auth activate-service-account --key-file=gcloud-service-key.json
             gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-            gcloud container clusters get-credentials ${GKE_CLUSTER_NAME} --region ${GOOGLE_COMPUTE_REGION} --project ${GOOGLE_PROJECT_ID}
+            gcloud container clusters get-credentials ${GKE_CLUSTER_NAME} --zone ${GOOGLE_COMPUTE_ZONE} --project ${GOOGLE_PROJECT_ID}
       - run:
           name: Wait a little until k8s worker nodes up
           command: sleep 30 # It’s a place for improvement
@@ -81,7 +81,7 @@ workflows:
       - gcp-gcr/build-and-push-image:
           dockerfile: Dockerfile
           gcloud-service-key: GCLOUD_SERVICE_KEY
-          google-compute-zone: GOOGLE_COMPUTE_REGION
+          google-compute-zone: GOOGLE_COMPUTE_ZONE
           google-project-id: GOOGLE_PROJECT_ID
           registry-url: gcr.io
           image: orderbird
