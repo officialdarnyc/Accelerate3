@@ -1,7 +1,0 @@
-project_orderbird
-.git
-.circleci
-.gitignore
-terraform
-helm
-
